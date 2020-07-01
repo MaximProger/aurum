@@ -80,4 +80,37 @@ $(document).ready(function () {
     $("#locationDocument").addClass("location--dark");
   }
   // РЕГИСТАЦИЯ END
+
+  // MODAL WINDOWS
+  // Закрытие окна
+  $(".modal-close-btn").on("click", function () {
+    $(".modal-wrapper").removeClass("active");
+  });
+
+  // Удалить поле
+  $(".modal-teble-delite").on("click", function () {
+    $(this).parent().parent().remove();
+  });
+
+  // Добавить поле
+  $(".modal-add-field").on("click", function () {
+    $(".modal-form").append(`
+    <div class="row mt-3">
+            <div class="col-lg-3 col-6">
+              <input type="text">
+            </div>
+            <div class="col-lg-3 col-6">
+              <input type="text">
+            </div>
+            <div class="col-lg-5 col-6">
+              <input type="text">
+            </div>
+            <div class="col-lg-1 col-6 d-flex align-items-center justify-content-center">
+              <img src="./img/modal/table-close.svg" alt="Delite" title="Удалить" class="modal-teble-delite">
+            </div>
+          </div>
+    `);
+  });
+
+  // MODAL WINDOWS END
 });

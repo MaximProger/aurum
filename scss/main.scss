@@ -2178,3 +2178,481 @@ tr.mydeal-head {
 }
 
 /* Регистрация END */
+
+/* MODAL WINDOWS */
+.modal-wrapper {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #546e7a;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+
+  &.active {
+    display: flex;
+  }
+}
+
+.modal {
+  padding: 24px 30px;
+  background: #fff;
+  position: relative;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.16), 0px 0px 2px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(15px);
+  border-radius: 5px;
+  &--login {
+    width: 400px;
+  }
+  &--fluid {
+    width: 890px;
+    max-height: 700px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 4px; /* 1 - вертикальный скроллбар */
+    }
+    &::-webkit-scrollbar:horizontal {
+      height: 4px; /* 1 - горизонтальный скроллбар */
+    }
+    &::-webkit-scrollbar-button {
+      background: #edf9ff; /* 2 - кнопка */
+    }
+    &::-webkit-scrollbar-track {
+      background: #edf9ff; /* 3 - трек */
+    }
+    &::-webkit-scrollbar-track-piece {
+      background: #edf9ff; /* 4 – видимая часть трека */
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #0066cb;
+      border-radius: 3px;
+    }
+
+    .modal-title {
+      margin-bottom: 5px;
+    }
+
+    .modal-content {
+      p {
+        margin-bottom: 10px;
+        font-size: 14px;
+        line-height: 24px;
+      }
+
+      b {
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #2d3e50;
+      }
+
+      .modal-conent-title {
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #2d3e50;
+      }
+    }
+
+    .modal-close-btn {
+      top: 5px;
+      right: 5px;
+    }
+  }
+
+  &--table {
+    width: 890px;
+
+    .modal-footer {
+      border-top: 1px solid #bfe7fb;
+      padding-top: 22px;
+    }
+  }
+
+  .registration-btn {
+    width: 200px;
+
+    &.reject {
+      background: #546e7a;
+
+      &:hover {
+        background: #4c626d;
+      }
+    }
+  }
+
+  input {
+    background: #edf9ff;
+    border-radius: 3px;
+    width: 100%;
+    height: 45px;
+    border: none;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #0066cb;
+    padding-left: 5px;
+
+    &::placeholder {
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      color: #0066cb;
+    }
+
+    &.invalid {
+      background: #fff;
+      border: 1px solid #e95753;
+    }
+  }
+
+  input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    background: #edf9ff;
+    border-radius: 3px;
+    margin-right: 15px;
+    border-color: #fff;
+    min-width: 24px;
+
+    &:after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: #edf9ff;
+    }
+
+    &:checked {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  label {
+    font-size: 16px;
+    line-height: 24px;
+    color: #2d3e50;
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+
+  table {
+    width: 100%;
+    border-spacing: unset;
+    border-radius: 3px;
+    overflow-y: scroll;
+    text-align: left;
+
+    &::-webkit-scrollbar {
+      width: 4px; /* 1 - вертикальный скроллбар */
+    }
+    &::-webkit-scrollbar:horizontal {
+      height: 4px; /* 1 - горизонтальный скроллбар */
+    }
+    &::-webkit-scrollbar-button {
+      background: #edf9ff; /* 2 - кнопка */
+    }
+    &::-webkit-scrollbar-track {
+      background: #edf9ff; /* 3 - трек */
+    }
+    &::-webkit-scrollbar-track-piece {
+      background: #edf9ff; /* 4 – видимая часть трека */
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #0066cb;
+      border-radius: 3px;
+    }
+
+    b {
+      font-size: 16px;
+      line-height: 19px;
+      color: #2d3e50;
+      font-weight: bold;
+    }
+
+    tr {
+      height: 50px;
+    }
+
+    .form-check {
+      width: auto;
+    }
+
+    input[type="checkbox"] {
+      margin-left: 14px;
+      margin-right: 0;
+    }
+  }
+
+  table th {
+    background: #f2f2f2;
+    height: 50px;
+  }
+
+  tr:nth-child(2n + 3) td,
+  .section__tables tr:nth-child(2n + 3) td {
+    background: #edf9ff;
+
+    input[type="checkbox"] {
+      background: #fff;
+    }
+
+    input[type="checkbox"]:after {
+      background: #fff;
+    }
+  }
+}
+
+.modal-close-btn {
+  width: 39px;
+  height: 39px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.modal-header {
+  border-bottom: 1px solid #bfe7fb;
+  margin-bottom: 15px;
+
+  &.empty {
+    border: none;
+  }
+}
+
+.modal-title {
+  font-size: 23px;
+  line-height: 34px;
+  color: #0066cb;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal-subtitle {
+  text-align: center;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1b2734;
+  margin-bottom: 25px;
+}
+
+.modal-form {
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  .form-check {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .invalid-feedback {
+    display: none;
+    color: #e95753;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 13px;
+
+    span {
+      color: #e95753;
+    }
+
+    &.active {
+      display: flex;
+      background: #fff;
+      color: #e95753;
+    }
+
+    img {
+      margin-right: 13px;
+    }
+  }
+
+  .register-btn-wrapper {
+    margin-top: 20px;
+    margin-bottom: 17px;
+
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .registration-btn {
+    width: 200px;
+
+    &.reject {
+      background: #546e7a !important;
+
+      &:hover {
+        background: #4c626d;
+      }
+    }
+  }
+}
+
+.modal-footer {
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.modal-text {
+  text-align: center;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1b2734;
+  &--big {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 34px;
+    margin-bottom: 7px;
+  }
+}
+
+.modal-content {
+  b {
+    font-weight: bold;
+    color: #2d3e50;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px; /* 1 - вертикальный скроллбар */
+  }
+  &::-webkit-scrollbar:horizontal {
+    height: 4px; /* 1 - горизонтальный скроллбар */
+  }
+  &::-webkit-scrollbar-button {
+    background: #edf9ff; /* 2 - кнопка */
+  }
+  &::-webkit-scrollbar-track {
+    background: #edf9ff; /* 3 - трек */
+  }
+  &::-webkit-scrollbar-track-piece {
+    background: #edf9ff; /* 4 – видимая часть трека */
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #0066cb;
+    border-radius: 3px;
+  }
+}
+
+.modal-teble-delite {
+  cursor: pointer;
+  transition: all 0.2s linear;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.modal-add-field {
+  display: inline-block;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.modal-text-wrapper {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.modal-text-middle {
+  text-align: right;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 34px;
+  color: #1b2734;
+}
+
+.modal-text-center {
+  text-align: center;
+}
+
+.registration-btn--orger {
+  color: #0066cb;
+  background: transparent;
+  border: 1px solid #0066cb;
+  transition: all 0.2s linear;
+  width: 260px !important;
+
+  &:hover {
+    background: #0066cb;
+    color: #fff;
+  }
+}
+
+@media (max-width: 992px) {
+  .modal {
+    &--table {
+      input {
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .modal {
+    border-radius: 0;
+    text-align: center;
+    padding: 24px 10px;
+    &--login {
+      width: 100%;
+    }
+    &--fluid {
+      width: 100%;
+    }
+
+    &--table {
+      width: 100%;
+
+      input {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .modal-close-btn {
+    top: 0;
+    right: 0;
+  }
+
+  .register-btn-wrapper > div {
+    flex-direction: column;
+
+    button {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+/* MODAL WINDOWS - END */
